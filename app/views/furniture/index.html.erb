@@ -1,0 +1,14 @@
+<h1>Furniture</h1>
+<p>Hello furniture app</p>
+<ul>
+  <% @furniture_items.each do |item| %>
+    <li>
+      <p>
+        <%= link_to item.name, furniture_path(item) %>
+      </p>
+      <p>
+        <%= item.description %>
+      </p>
+    </li>
+  <% end %>
+</ul>
