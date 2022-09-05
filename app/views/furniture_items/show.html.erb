@@ -1,0 +1,8 @@
+<%= link_to 'All Items', furniture_items_path %>
+<h1><%= @furniture_item.name %></h1>
+<p><%= @furniture_item.description %></p>
+<%= link_to 'Edit', edit_furniture_item_path(@furniture_item) %>
+<%= link_to 'Delete', furniture_item_path(@furniture_item), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>
