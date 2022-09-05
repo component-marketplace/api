@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'home#index'
+  resources :admin_session, only: [:new, :create, :destroy]
   resources :furniture_items
   resources :admin_users
 end

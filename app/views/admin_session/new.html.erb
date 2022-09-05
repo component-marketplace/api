@@ -1,0 +1,12 @@
+<h1>Login</h1>
+<%= form_with url: admin_session_index_path, scope: :admin_user do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, required: true %>
+  </div>
+  <%= form.submit 'Sign In' %>
+<% end %>

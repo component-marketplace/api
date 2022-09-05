@@ -1,3 +1,7 @@
+<%= link_to 'Logout', admin_session_path(@current_admin), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>
 <h1>Welcome to the Admin Panel</h1>
 <p><%= link_to 'Admin Users', admin_users_path %></p>
 <p><%= link_to 'Furniture Items', furniture_items_path %></p>
