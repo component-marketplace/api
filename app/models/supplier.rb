@@ -8,4 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Supplier < ApplicationRecord
+  has_many :item_components
+  has_many :items, -> { distinct }, through: :item_components
 end

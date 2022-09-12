@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
   resources :admin_session, only: [:new, :create, :destroy]
-  resources :furniture_items
+  resources :items
   resources :admin_users
+  resources :item_components
+  resources :suppliers
 end

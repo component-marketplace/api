@@ -4,11 +4,11 @@
 #
 #  id                :integer          not null, primary key
 #  item_component_id :integer
-#  furniture_item_id :integer
+#  item_id :integer
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
 class ItemComponentItem < ApplicationRecord
-  belongs_to :furniture_item
+  belongs_to :item
   belongs_to :item_component
 end

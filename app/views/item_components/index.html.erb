@@ -1,0 +1,18 @@
+<%= link_to 'Home', root_path %>
+<h1>Item Components</h1>
+<div><%= link_to 'New Item', new_item_component_path %></div>
+<ul>
+  <% @item_components.each do |item| %>
+    <li>
+      <div>
+        <p><%= link_to item.name, item %></p>
+        <% if item.supplier.present? %>
+          <p>By <%= link_to item.supplier.name, item.supplier %></p>
+        <% end %>
+      </div>
+      <p>
+        <%= item.description %>
+      </p>
+    </li>
+  <% end %>
+</ul>

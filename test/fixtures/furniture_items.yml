@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: furniture_items
+# Table name: items
 #
 #  id          :integer          not null, primary key
 #  name        :string

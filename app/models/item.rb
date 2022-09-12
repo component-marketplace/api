@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: furniture_items
+# Table name: items
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -10,9 +10,9 @@
 #  supplier_id :integer
 #  price       :float
 #
-class FurnitureItem < ApplicationRecord
+class Item < ApplicationRecord
   validates :name, presence: true
-  validates :description, presence: true, length: { minimum: 10 }
+  validates :description, presence: true
 
   belongs_to :supplier, optional: true
 

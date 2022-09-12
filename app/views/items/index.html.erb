@@ -1,8 +1,8 @@
 <%= link_to 'Home', root_path %>
-<h1>Furniture Items</h1>
-<div><%= link_to 'New Furniture Item', new_furniture_item_path %></div>
+<h1>Items</h1>
+<div><%= link_to 'New Item', new_item_path %></div>
 <ul>
-  <% @furniture_items.each do |item| %>
+  <% @items.each do |item| %>
     <li>
       <p>
         <%= link_to item.name, item %>

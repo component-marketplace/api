@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: furniture_items
+# Table name: items
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -12,7 +12,7 @@
 #
 require "test_helper"
 
-class FurnitureItemTest < ActiveSupport::TestCase
+class ItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

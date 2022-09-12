@@ -1,0 +1,19 @@
+<%= link_to 'All Suppliers', suppliers_path %>
+<h1><%= @supplier.name %></h1>
+<h2>Item Components Made</h2>
+<ul>
+  <% @supplier.item_components.each do |component| %>
+    <li><%= component.name %></li>
+  <% end %>
+</ul>
+<h2>Items Components Are Being Used In</h2>
+<ul>
+  <% @supplier.items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Edit', edit_supplier_path(@supplier) %>
+<%= link_to 'Delete', supplier_path(@supplier), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>

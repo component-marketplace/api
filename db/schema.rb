@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_233439) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "furniture_items", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_233439) do
 
   create_table "item_component_items", force: :cascade do |t|
     t.integer "item_component_id"
-    t.integer "furniture_item_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

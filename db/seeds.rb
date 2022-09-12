@@ -41,21 +41,21 @@ comp_item4 = ItemComponent.create(
   price: 1.99
   )
 
-item1 = FurnitureItem.create(
+item1 = Item.create(
   name: 'Hair Gel',
   description: 'An Aloe Vera based hair gel that smells great',
   price: 5.99
 )
 
-item2 = FurnitureItem.create(
+item2 = Item.create(
   name: 'A complete Jet!',
   description: 'A jet to go from A to B',
   price: 105.99
 )
 
-item_joins1 = ItemComponentItem.create(item_component_id: comp_item4.id, furniture_item_id: item1.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item3.id, furniture_item_id: item1.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item2.id, furniture_item_id: item2.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item1.id, furniture_item_id: item2.id)
+item_joins1 = ItemComponentItem.create(item_component_id: comp_item4.id, item_id: item1.id)
+item_joins2 = ItemComponentItem.create(item_component_id: comp_item3.id, item_id: item1.id)
+item_joins2 = ItemComponentItem.create(item_component_id: comp_item2.id, item_id: item2.id)
+item_joins2 = ItemComponentItem.create(item_component_id: comp_item1.id, item_id: item2.id)
 
 puts 'Finished Seeding!'
