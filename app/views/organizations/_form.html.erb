@@ -1,0 +1,12 @@
+<%= form_with model: organization do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.number :name %>
+    <% item.errors.full_messages_for(:name).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

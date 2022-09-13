@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
   root 'home#index'
+
   resources :admin_session, only: [:new, :create, :destroy]
   resources :items
   resources :admin_users
   resources :item_components
   resources :suppliers
+  resources :users
+  resources :purchase_receipts
+  resources :sale_receipts
+  resources :organizations
+  resources :item_subscribers
 end

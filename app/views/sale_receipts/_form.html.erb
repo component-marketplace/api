@@ -1,0 +1,26 @@
+<%= form_with model: sale_receipt do |form| %>
+  <div>
+    <%= form.label :price %>
+    <%= form.number :price %>
+    <% item.errors.full_messages_for(:price).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :expected_arrival %>
+    <%= form.date :expected_arrival %>
+    <% item.errors.full_messages_for(:expected_arrival).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :item_id %>
+    <%= form.date :item_id %>
+    <% item.errors.full_messages_for(:item_id).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

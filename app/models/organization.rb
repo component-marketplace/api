@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Organization < ApplicationRecord
+  has_many :users
 end

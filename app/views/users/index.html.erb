@@ -1,0 +1,10 @@
+<%= link_to 'Home', root_path %>
+<h1>Users</h1>
+<%= link_to 'New Admin User', new_user_path %>
+<ul>
+  <% @users.each do |user| %>
+    <p>
+      <%= link_to user.email, user %>
+    </p>
+  <% end %>
+</ul>

@@ -12,5 +12,5 @@
 class SaleReceipt < ApplicationRecord
   belongs_to :item
 
-  
+  # TODO: after or before create fill profit column, based on price and quantity
 end
