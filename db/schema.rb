@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_215905) do
   end
 
   create_table "purchase_receipts", force: :cascade do |t|
-    t.integer "component_item_id"
+    t.integer "item_component_id"
     t.float "price"
     t.date "expected_arrival"
     t.datetime "created_at", null: false

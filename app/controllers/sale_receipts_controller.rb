@@ -1,0 +1,2 @@
+class SaleReceiptsController < ApplicationController
+end
