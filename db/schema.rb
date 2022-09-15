@@ -44,10 +44,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "supplier_id"
     t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
 
   create_table "purchase_receipts", force: :cascade do |t|
     t.integer "item_component_id"
+    t.integer "organization_id"
     t.float "price"
     t.date "expected_arrival"
     t.datetime "created_at", null: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
 
   create_table "sale_receipts", force: :cascade do |t|
     t.integer "item_id"
+    t.integer "organization_id"
     t.float "price"
     t.float "profit"
     t.datetime "created_at", null: false

@@ -9,4 +9,6 @@
 #
 class Organization < ApplicationRecord
   has_many :users
+  has_many :sale_receipts
+  has_many :purchase_receipts
 end
