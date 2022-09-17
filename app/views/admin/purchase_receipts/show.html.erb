@@ -1,0 +1,8 @@
+<%= link_to 'All Purchase Receipts'purchase_receipts_path %>
+<h1><%= @purchase_receipt.price %></h1>
+<p><%= @purchase_receipt.expected_delivery %></p>
+<%= link_to 'Edit', editpurchase_receipt_path(@purchase_receipt) %>
+<%= link_to 'Delete'purchase_receipt_path(@purchase_receipt), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>

@@ -21,7 +21,7 @@ module Authentication
   end
 
   def redirect_if_unauthenticated
-    redirect_to new_admin_session_path if !user_signed_in?
+    redirect_to new_session_path if !user_signed_in?
   end
 
   private

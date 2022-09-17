@@ -1,0 +1,19 @@
+<%= form_with model: item_component do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% item_component.errors.full_messages_for(:name).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <% item_component.errors.full_messages_for(:description).each do |msg| %>
+      <div><%= msg %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

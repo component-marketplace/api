@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  console.log(fetch('http://localhost:3000/admin_users'))
+  fetch('http://localhost:3000/v1/items').then((resp) => resp.json().then((data) => console.log(data)))
   return (
     <div className="App">
       <header className="App-header">

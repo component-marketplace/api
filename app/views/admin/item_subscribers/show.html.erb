@@ -1,0 +1,7 @@
+<%= link_to 'All Item Subscribers'item_subscribers_path %>
+<h1><%= @item_subscriber.name %></h1>
+<%= link_to 'Edit', edititem_subscriber_path(@item_subscriber) %>
+<%= link_to 'Delete'item_subscriber_path(@item_subscriber), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>

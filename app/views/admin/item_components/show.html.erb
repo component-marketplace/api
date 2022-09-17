@@ -1,0 +1,14 @@
+<%= link_to 'All Item Components'item_components_path %>
+<h1><%= @item_component.name %></h1>
+<p><%= @item_component.description %></p>
+<h2>Items being used in</h2>
+<ul>
+  <% @item_component.items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
+<%= link_to 'Edit', edititem_component_path(@item_component) %>
+<%= link_to 'Delete'item_component_path(@item_component), data: {
+  turbo_method: :delete,
+  turbo_confirm: 'Are you sure?'
+} %>
