@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import Items from './views/items';
+import ItemDetail from './views/items/ItemDetail';
+import Nav from './Nav';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import './App.css';
+import ItemsProvider from './contexts/ItemsContext';
+import ItemDetailProvider from './contexts/ItemDetailContext';
 
 function App() {
-  fetch('http://localhost:3000/v1/items').then((resp) => resp.json().then((data) => console.log(data)))
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path='/items/:itemId' element={<ItemDetailProvider><ItemDetail /></ItemDetailProvider>} />
+          <Route path='/items' element={<ItemsProvider><Items /></ItemsProvider>} />
+          <Route path='/actions' element={<h1>Critical Actions</h1>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

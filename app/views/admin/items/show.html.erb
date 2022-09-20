@@ -1,4 +1,4 @@
-<%= link_to 'All Items'items_path %>
+<%= link_to 'All Items', items_path %>
 <h1><%= @item.name %></h1>
 <p><%= @item.description %></p>
 <h2>Components</h2>
@@ -7,8 +7,8 @@
     <li><%= component.name %></li>
   <% end %>
 </ul>
-<%= link_to 'Edit', edititem_path(@item) %>
-<%= link_to 'Delete'item_path(@item), data: {
+<%= link_to 'Edit', edit_item_path(@item) %>
+<%= link_to 'Delete', item_path(@item), data: {
   turbo_method: :delete,
   turbo_confirm: 'Are you sure?'
 } %>

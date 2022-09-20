@@ -1,4 +1,6 @@
 class V1::ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @items = Item.all
     render :json => @items
@@ -6,6 +8,7 @@ class V1::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    render :json => {item: @item, components: @item.item_components}
   end
 
   def new
@@ -43,6 +46,6 @@ class V1::ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :description)
+      params.permit(:name, :description)
     end
 end

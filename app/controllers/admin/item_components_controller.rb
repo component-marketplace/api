@@ -46,12 +46,12 @@ class Admin::ItemComponentsController < ApplicationController
   def destroy
     @item_component = ItemComponent.find(params[:id])
     @item_component.destroy
-    redirect_titem_components_path, status: :see_other
+    redirect_to item_components_path, status: :see_other
   end
 
   private 
     def item_component_params
-      params.require(:item_component).permit(:name, :description, :price, :supplier_id)
+      params.require(:item_component).permit(:name, :description, :price, :supplier_id, :item_id)
     end
 
 end
