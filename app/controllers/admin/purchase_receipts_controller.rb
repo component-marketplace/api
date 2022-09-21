@@ -36,7 +36,7 @@ class Admin::PurchaseReceiptsController < ApplicationController
   def destroy
     @purchase_receipt = PurchaseReceipt.find(params[:id])
     @purchase_receipt.destroy
-    redirect_tpurchase_receipts_path, status: :see_other
+    redirect_to purchase_receipts_path, status: :see_other
   end
 
   private

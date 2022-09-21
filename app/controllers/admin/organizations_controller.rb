@@ -14,7 +14,7 @@ class Admin::OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      redirect_torganizations_path
+      redirect_to organizations_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,11 +36,11 @@ class Admin::OrganizationsController < ApplicationController
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
-    redirect_torganizations_path, status: :see_other
+    redirect_to organizations_path, status: :see_other
   end
 
   private
     def organization_params
-      params.require(:organization).permit(:item_component_id, :price, :expected_arrival)
+      params.require(:organization).permit(:name)
     end
 end

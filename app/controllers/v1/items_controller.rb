@@ -8,7 +8,14 @@ class V1::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    render :json => {item: @item, components: @item.item_components}
+    render :json => {
+      item: @item,
+      components: @item.item_components,
+      cost_to_build: @item.cost_to_build,
+      profit: @item.profit,
+      sale_receipts: @item.sale_receipts,
+      fg_buffer: @item.fg_buffer_basic
+    }
   end
 
   def new

@@ -2,13 +2,14 @@
 #
 # Table name: item_components
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :text
-#  price       :float
-#  supplier_id :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :integer          not null, primary key
+#  name           :string
+#  description    :text
+#  price          :float
+#  supplier_id    :integer
+#  stock_quantity :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 # This model initially had no columns defined. If you add columns to the

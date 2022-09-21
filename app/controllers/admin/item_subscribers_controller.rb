@@ -37,7 +37,7 @@ class Admin::ItemSubscribersController < ApplicationController
   def destroy
     @item_subscriber = ItemSubscriber.find(params[:id])
     @item_subscriber.destroy
-    redirect_titem_subscribers_path, status: :see_other
+    redirect_to item_subscribers_path, status: :see_other
   end
 
   private

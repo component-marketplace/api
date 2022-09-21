@@ -36,7 +36,7 @@ class Admin::SaleReceiptsController < ApplicationController
   def destroy
     @sale_receipt = SaleReceipt.find(params[:id])
     @sale_receipt.destroy
-    redirect_tsale_receipts_path, status: :see_other
+    redirect_to sale_receipts_path, status: :see_other
   end
 
   private

@@ -37,7 +37,7 @@ class Admin::SuppliersController < ApplicationController
   def destroy
     @supplier = Supplier.find(params[:id])
     @supplier.destroy
-    redirect_tsuppliers_path, status: :see_other
+    redirect_to suppliers_path, status: :see_other
   end
 
   private

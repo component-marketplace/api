@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_tusers_path, notice: ' User created'
+      redirect_to users_path, notice: ' User created'
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_tusers_path, status: :see_other
+    redirect_to users_path, status: :see_other
   end
 
   private 

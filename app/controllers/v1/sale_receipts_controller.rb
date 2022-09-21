@@ -1,6 +1,9 @@
-class SaleReceiptsController < ApplicationController
+class V1::SaleReceiptsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @sale_receipts = SaleReceipt.all
+    render :json => @sale_receipts
   end
 
   def show
@@ -14,7 +17,7 @@ class SaleReceiptsController < ApplicationController
   def create
     @sale_receipt = SaleReceipt.new(sale_receipt_params)
     if @sale_receipt.save
-      redirect_tsale_receipts_path
+      render :json => @sale_receipt
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,11 +39,11 @@ class SaleReceiptsController < ApplicationController
   def destroy
     @sale_receipt = SaleReceipt.find(params[:id])
     @sale_receipt.destroy
-    redirect_tsale_receipts_path, status: :see_other
+    redirect_to sale_receipts_path, status: :see_other
   end
 
   private
     def sale_receipt_params
-      params.require(:sale_receipt).permit(:item_id, :price, :expected_arrival)
+      params.permit(:item_id, :price, :organization_id, :quantity)
     end
 end

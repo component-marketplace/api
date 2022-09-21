@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
     t.text "description"
     t.float "price"
     t.integer "supplier_id"
+    t.integer "stock_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
     t.text "description"
     t.integer "supplier_id"
     t.float "price"
+    t.integer "stock_quantity"
+    t.integer "lead_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,7 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_202321) do
     t.integer "item_id"
     t.integer "organization_id"
     t.float "price"
-    t.float "profit"
+    t.integer "quantity"
+    t.float "cost_to_build"
+    t.integer "lead_time", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

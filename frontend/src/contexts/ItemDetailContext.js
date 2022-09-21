@@ -26,7 +26,13 @@ export default function ItemDetailProvider(props) {
 
   const context = useMemo(() => {
     return ({
-      item: data?.item,
+      item: {
+        ...data?.item, 
+        costToBuild: data?.cost_to_build, 
+        profit: data?.profit, 
+        sales: data?.sale_receipts, 
+        fg_buffer: data?.fg_buffer
+      },
       components: data?.components,
       refetch: () => fetchAndSet(),
     })

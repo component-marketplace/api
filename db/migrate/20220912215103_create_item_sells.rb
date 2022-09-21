@@ -4,7 +4,9 @@ class CreateItemSells < ActiveRecord::Migration[7.0]
       t.integer :item_id
       t.integer :organization_id
       t.float :price
-      t.float :profit
+      t.integer :quantity
+      t.float :cost_to_build
+      t.integer :lead_time, default: 0
       t.timestamps
     end
   end

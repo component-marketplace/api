@@ -1,4 +1,4 @@
-class OrganizationsController < ApplicationController
+class V1::OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
   end
@@ -36,7 +36,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
-    redirect_torganizations_path, status: :see_other
+    redirect_to organizations_path, status: :see_other
   end
 
   private

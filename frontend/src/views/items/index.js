@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useItemsContext } from '../../contexts/ItemsContext';
+import Dialog from '@mui/material/Dialog';
 
 const Items = styled((props) => {
   const { className } = props;
-  const { items, refetch } = useItemsContext();
-  const createItem = async() => {
-    await fetch(`http://localhost:3000/v1/items?name=New Item&description=A brand new item`, {method: 'post'});
-    refetch();
-  };
+  const { items } = useItemsContext();
+  const [newItemOpen, setNewItemOpen] = useState();
 
   return(
     <div className={className}>
@@ -21,7 +19,7 @@ const Items = styled((props) => {
       </div>
       <h1>Your Items</h1>
       <div className='items-container'>
-        <div className='add-new' onClick={() => createItem()}>+ Add New</div>
+        <div className='add-new' onClick={() => setNewItemOpen(true)}>+ Add New</div>
         {items?.map(item => {
           return (
             <Link to={`/items/${item.id}`} key={item.id}>
@@ -30,6 +28,7 @@ const Items = styled((props) => {
           )
         })}
       </div>
+      <NewItemForm open={Boolean(newItemOpen)} handleClose={() => setNewItemOpen(false)}/>
     </div>
   )
 })`
@@ -84,3 +83,52 @@ const Items = styled((props) => {
 `;
 
 export default Items;
+
+const NewItemForm = styled((props) => {
+  const { className, handleClose, open } = props;
+  const { refetch } = useItemsContext();
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+
+  const createItem = async() => {
+    await fetch(`http://localhost:3000/v1/items?name=${name}&description=${description}`, {method: 'post'});
+    refetch();
+    handleClose();
+  };
+
+  return(
+    <Dialog
+      open={open}
+      onClose={handleClose}
+    >
+      <div className={className}>
+        <div>Name:</div>
+        <input onChange={(e) => setName(e.target.value)} type='text' />
+        <div>Description:</div>
+        <input onChange={(e) => setDescription(e.target.value)} type='textarea' />
+        <button onClick={() => createItem()}>Submit</button>
+      </div>
+    </Dialog>
+  )
+})`
+  padding: 50px;
+
+  input {
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+
+    &:focus {
+      outline-color: pink;
+    }
+  }
+
+  button {
+    padding: 5px 10px;
+    text-align: center;
+    background-color: pink;
+    border-radius: 5px;
+  }
+`;
