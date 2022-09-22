@@ -60,7 +60,7 @@ const ItemDetail = styled((props) => {
                   <div>Price / Item: ${receipt.price}</div>
                   <div>Revenue: ${receipt.price * receipt.quantity}</div>
                   <div>Cost / Item: ${receipt.cost_to_build}</div>
-                  <div>Gross Profit: ${(receipt.price - receipt.cost_to_build) * receipt.quantity}</div>
+                  <div>Gross Profit: ${((receipt.price - receipt.cost_to_build) * receipt.quantity).toFixed(2)}</div>
                 </div>
               )
             })}
