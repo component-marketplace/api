@@ -25,12 +25,12 @@ class Item < ApplicationRecord
 
   def cost_to_build
     cost = 0
-    item_components.pluck(:price).each { |price| cost += price }
+    item_components.pluck(:price).each { |price| cost += (price || 0) }
     return cost.round(2)
   end
 
   def profit
-    (price - cost_to_build).round(2)
+    ((price || 0) - cost_to_build).round(2)
   end
 
   def fg_buffer_basic
