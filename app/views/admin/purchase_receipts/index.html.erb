@@ -1,14 +1,14 @@
 <%= link_to 'Home', root_path %>
 <h1>Purchase Receipts</h1>
-<div><%= link_to 'New Purchase Receipt', newpurchase_receipt_path %></div>
+<div><%= link_to 'New Purchase Receipt', new_purchase_receipt_path %></div>
 <ul>
   <% @purchase_receipts.each do |purchase_receipt| %>
     <li>
       <p>
-        <%= link_to purchase_receipt.name, purchase_receipt %>
+        <%= link_to purchase_receipt.item.name, purchase_receipt %>
       </p>
       <p>
-        <%= purchase_receipt.description %>
+        <%= purchase_receipt.created_at %>
       </p>
     </li>
   <% end %>

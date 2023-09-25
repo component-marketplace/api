@@ -1,4 +1,4 @@
-<%= link_to 'All Suppliers'suppliers_path %>
+<%= link_to 'All Suppliers', suppliers_path %>
 <h1><%= @supplier.name %></h1>
 <h2>Item Components Made</h2>
 <ul>
@@ -12,8 +12,8 @@
     <li><%= item.name %></li>
   <% end %>
 </ul>
-<%= link_to 'Edit', editsupplier_path(@supplier) %>
-<%= link_to 'Delete'supplier_path(@supplier), data: {
+<%= link_to 'Edit', edit_supplier_path(@supplier) %>
+<%= link_to 'Delete', supplier_path(@supplier), data: {
   turbo_method: :delete,
   turbo_confirm: 'Are you sure?'
 } %>
