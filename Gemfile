@@ -41,6 +41,7 @@ gem 'loofah', '>= 2.19.1'
 gem 'nokogiri', '>= 1.14.3' # Choose the highest recommended version
 gem 'rack', '>= 2.2.0' # Choose the highest recommended version or the one that is compatible with your app
 gem 'rubocop'
+gem 'rubocop-discourse'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
