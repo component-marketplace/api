@@ -93,8 +93,8 @@ GEM
       reline (>= 0.3.1)
     digest (3.1.0)
     erubi (1.11.0)
-    globalid (1.0.0)
-      activesupport (>= 5.0)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -106,9 +106,9 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    loofah (2.19.0)
+    loofah (2.21.3)
       crass (~> 1.0.2)
-      nokogiri (>= 1.5.9)
+      nokogiri (>= 1.12.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
@@ -132,17 +132,17 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8-arm64-darwin)
+    nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
+    nokogiri (1.15.4-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     pg (1.5.4)
     public_suffix (5.0.0)
-    puma (5.6.5)
+    puma (6.4.0)
       nio4r (~> 2.0)
-    racc (1.6.0)
+    racc (1.7.1)
     rack (2.2.4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -226,17 +226,25 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionpack (>= 7.0.4)
+  actionview (>= 7.0.4)
+  activerecord (>= 7.0.4)
+  activesupport (>= 7.0.4)
   bcrypt (~> 3.1.7)
   bootsnap
   bundler-audit
   capybara
   debug
+  globalid (>= 1.0.1)
   importmap-rails
   jbuilder
+  loofah (>= 2.19.1)
+  nokogiri (>= 1.14.3)
   pg
-  puma (~> 5.0)
+  puma (>= 6.3.1)
+  rack (>= 2.2.0)
   rack-cors
-  rails (~> 7.0.2, >= 7.0.2.3)
+  rails (~> 7.0.4)
   selenium-webdriver
   sprockets-rails
   stimulus-rails

@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.2", ">= 7.0.2.3"
+gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -15,7 +15,7 @@ gem "pg"
 gem "bundler-audit"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", '>= 6.3.1'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -29,6 +29,16 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "rack-cors"
+
+gem 'actionpack', '>= 7.0.4'
+gem 'actionview', '>= 7.0.4'
+gem 'activerecord', '>= 7.0.4'
+gem 'activesupport', '>= 7.0.4'
+gem 'globalid', '>= 1.0.1'
+gem 'loofah', '>= 2.19.1'
+gem 'nokogiri', '>= 1.14.3' # Choose the highest recommended version
+gem 'rack', '>= 2.2.0'    # Choose the highest recommended version or the one that is compatible with your app
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
