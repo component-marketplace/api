@@ -1,6 +1,5 @@
 class Admin::AdminUsersController < ApplicationController
-
-  def index 
+  def index
     @admin_users = AdminUser.all
   end
 
@@ -27,8 +26,9 @@ class Admin::AdminUsersController < ApplicationController
     redirect_to adminusers_path, status: :see_other
   end
 
-  private 
-    def admin_user_params
-      params.require(:admin_user).permit(:email, :password, :password_confirmation)
-    end
+  private
+
+  def admin_user_params
+    params.require(:admin_user).permit(:email, :password, :password_confirmation)
+  end
 end

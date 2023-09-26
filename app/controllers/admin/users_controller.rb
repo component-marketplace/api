@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  def index 
+  def index
     @users = User.all
   end
 
@@ -26,8 +26,9 @@ class Admin::UsersController < ApplicationController
     redirect_to users_path, status: :see_other
   end
 
-  private 
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
-    end
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end

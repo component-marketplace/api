@@ -3,12 +3,12 @@ class V1::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    render :json => @items
+    render json: @items
   end
 
   def show
     @item = Item.find(params[:id])
-    render :json => {
+    render json: {
       item: @item,
       components: @item.item_components,
       cost_to_build: @item.cost_to_build,
@@ -26,7 +26,7 @@ class V1::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to @item
-    else 
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -40,7 +40,7 @@ class V1::ItemsController < ApplicationController
 
     if @item.update(item_params)
       redirect_to @item
-    else 
+    else
       render :edit, status: :unprocessable_entity
     end
   end
@@ -52,7 +52,8 @@ class V1::ItemsController < ApplicationController
   end
 
   private
-    def item_params
-      params.permit(:name, :description)
-    end
+
+  def item_params
+    params.permit(:name, :description)
+  end
 end

@@ -40,7 +40,8 @@ class Admin::PurchaseReceiptsController < ApplicationController
   end
 
   private
-    def purchase_receipt_params
-      params.require(:purchase_receipt).permit(:item_component_id, :price, :expected_arrival)
-    end
+
+  def purchase_receipt_params
+    params.require(:purchase_receipt).permit(:item_component_id, :price, :expected_arrival)
+  end
 end

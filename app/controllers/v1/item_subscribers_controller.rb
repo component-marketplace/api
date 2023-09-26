@@ -15,7 +15,7 @@ class V1::ItemSubscribersController < ApplicationController
     @item_subscriber = ItemSubscriber.new(item_params)
     if @item_subscriber.save
       redirect_to @item_subscriber
-    else 
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,7 +29,7 @@ class V1::ItemSubscribersController < ApplicationController
 
     if @item_subscriber.update(item_params)
       redirect_to @item_subscriber
-    else 
+    else
       render :edit, status: :unprocessable_entity
     end
   end
@@ -41,7 +41,8 @@ class V1::ItemSubscribersController < ApplicationController
   end
 
   private
-    def item_subscriber_params
-      params.require(:item_subscriber).permit(:name, :item_id)
-    end
+
+  def item_subscriber_params
+    params.require(:item_subscriber).permit(:name, :item_id)
+  end
 end

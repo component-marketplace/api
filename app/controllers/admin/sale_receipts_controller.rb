@@ -40,7 +40,8 @@ class Admin::SaleReceiptsController < ApplicationController
   end
 
   private
-    def sale_receipt_params
-      params.require(:sale_receipt).permit(:item_id, :price, :expected_arrival)
-    end
+
+  def sale_receipt_params
+    params.require(:sale_receipt).permit(:item_id, :price, :expected_arrival)
+  end
 end

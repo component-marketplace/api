@@ -3,7 +3,7 @@ class V1::SaleReceiptsController < ApplicationController
 
   def index
     @sale_receipts = SaleReceipt.all
-    render :json => @sale_receipts
+    render json: @sale_receipts
   end
 
   def show
@@ -17,7 +17,7 @@ class V1::SaleReceiptsController < ApplicationController
   def create
     @sale_receipt = SaleReceipt.new(sale_receipt_params)
     if @sale_receipt.save
-      render :json => @sale_receipt
+      render json: @sale_receipt
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,7 +43,8 @@ class V1::SaleReceiptsController < ApplicationController
   end
 
   private
-    def sale_receipt_params
-      params.permit(:item_id, :price, :organization_id, :quantity)
-    end
+
+  def sale_receipt_params
+    params.permit(:item_id, :price, :organization_id, :quantity)
+  end
 end

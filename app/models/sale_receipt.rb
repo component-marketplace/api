@@ -21,5 +21,4 @@ class SaleReceipt < ApplicationRecord
   def freeze_build_cost
     self.cost_to_build = item.cost_to_build
   end
-
 end

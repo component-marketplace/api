@@ -12,5 +12,4 @@ class ItemComponentItem < ApplicationRecord
   belongs_to :item
   belongs_to :item_component
   has_many :purchase_receipts
-
 end

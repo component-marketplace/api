@@ -1,5 +1,4 @@
 class Admin::SuppliersController < ApplicationController
-
   def index
     @suppliers = Supplier.all
   end
@@ -7,7 +6,7 @@ class Admin::SuppliersController < ApplicationController
   def show
     @supplier = Supplier.find(params[:id])
   end
-  
+
   def new
     @supplier = Supplier.new
   end
@@ -18,7 +17,7 @@ class Admin::SuppliersController < ApplicationController
       redirect_to @supplier
     else
       render :new, status: :unprocessable_entity
-    end 
+    end
   end
 
   def edit
@@ -41,8 +40,8 @@ class Admin::SuppliersController < ApplicationController
   end
 
   private
-    def supplier_params
-      params.require(:supplier).permit(:name)
-    end
 
+  def supplier_params
+    params.require(:supplier).permit(:name)
+  end
 end

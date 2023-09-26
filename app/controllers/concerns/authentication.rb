@@ -21,15 +21,16 @@ module Authentication
   end
 
   def redirect_if_unauthenticated
-    redirect_to new_admin_session_path if !user_signed_in?
+    redirect_to new_admin_session_path unless user_signed_in?
   end
 
   private
-    def current_user
-      CurrentAdmin.user ||= session[:current_user_id] && AdminUser.find_by(id: session[:current_user_id])
-    end
 
-    def user_signed_in?
-      CurrentAdmin.user.present?
-    end
+  def current_user
+    CurrentAdmin.user ||= session[:current_user_id] && AdminUser.find_by(id: session[:current_user_id])
+  end
+
+  def user_signed_in?
+    CurrentAdmin.user.present?
+  end
 end

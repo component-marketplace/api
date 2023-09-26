@@ -10,7 +10,7 @@
 #  supplier_id :integer
 #  price       :float
 #
-require "test_helper"
+require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
   # test "the truth" do

@@ -15,7 +15,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to @item
-    else 
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,7 +29,7 @@ class Admin::ItemsController < ApplicationController
 
     if @item.update(item_params)
       redirect_to @item
-    else 
+    else
       render :edit, status: :unprocessable_entity
     end
   end
@@ -41,7 +41,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
-    def item_params
-      params.require(:item).permit(:name, :description)
-    end
+
+  def item_params
+    params.require(:item).permit(:name, :description)
+  end
 end

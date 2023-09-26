@@ -1,8 +1,7 @@
 class Admin::AdminSessionController < ApplicationController
-  before_action :redirect_if_authenticated, only: [:create, :new]
+  before_action :redirect_if_authenticated, only: %i[create new]
 
-  def new
-  end
+  def new; end
 
   def create
     @admin_user = AdminUser.find_by(email: params[:admin_user][:email].downcase)
@@ -19,5 +18,4 @@ class Admin::AdminSessionController < ApplicationController
     logout
     redirect_to root_path
   end
-
 end

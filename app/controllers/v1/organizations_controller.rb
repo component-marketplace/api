@@ -40,7 +40,8 @@ class V1::OrganizationsController < ApplicationController
   end
 
   private
-    def organization_params
-      params.require(:organization).permit(:item_component_id, :price, :expected_arrival)
-    end
+
+  def organization_params
+    params.require(:organization).permit(:item_component_id, :price, :expected_arrival)
+  end
 end

@@ -13,15 +13,15 @@ class V1::ItemComponentsController < ApplicationController
     @item_component = ItemComponent.new(item_component_params)
     if @item_component.save
       # TODO: Item id's need to be an array if used in multiple items
-      if params[:item_id] #TODO: Update this method, probably make a business method, after_create or something
+      if params[:item_id] # TODO: Update this method, probably make a business method, after_create or something
         item_component_item = ItemComponentItem.new(item_component_id: @item_component.id, item_id: params[:item_id])
         if item_component_item.save
-          render :json => @item_component
-        else 
+          render json: @item_component
+        else
           render json: 'Component created but not saved to items'
         end
       end
-    else 
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -35,7 +35,7 @@ class V1::ItemComponentsController < ApplicationController
 
     if @item_component.update(item_component_params)
       redirect_to @item_component
-    else 
+    else
       render :edit, status: :unprocessable_entity
     end
   end
@@ -46,9 +46,9 @@ class V1::ItemComponentsController < ApplicationController
     redirect_to item_components_path, status: :see_other
   end
 
-  private 
-    def item_component_params
-      params.permit(:name, :description, :price, :supplier_id)
-    end
+  private
 
+  def item_component_params
+    params.permit(:name, :description, :price, :supplier_id)
+  end
 end

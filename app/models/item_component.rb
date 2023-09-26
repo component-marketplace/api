@@ -16,5 +16,4 @@ class ItemComponent < ApplicationRecord
 
   has_many :item_component_items, dependent: :destroy
   has_many :items, through: :item_component_items
-
 end

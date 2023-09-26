@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  scope module: 'admin', path: 'admin' do 
-    resources :admin_session, only: [:new, :create, :destroy]
+  scope module: 'admin', path: 'admin' do
+    resources :admin_session, only: %i[new create destroy]
     resources :items
     resources :admin_users
     resources :item_components
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :item_subscribers
   end
 
-  namespace :v1 do 
+  namespace :v1 do
     resources :items
     resources :item_components
     resources :suppliers
