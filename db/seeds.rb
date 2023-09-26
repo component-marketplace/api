@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -59,17 +61,15 @@ item2 = Item.create(
   stock_quantity: 10
 )
 
-item_joins1 = ItemComponentItem.create(item_component_id: comp_item4.id, item_id: item1.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item3.id, item_id: item1.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item2.id, item_id: item2.id)
-item_joins2 = ItemComponentItem.create(item_component_id: comp_item1.id, item_id: item2.id)
+ItemComponentItem.create(item_component_id: comp_item4.id, item_id: item1.id)
+ItemComponentItem.create(item_component_id: comp_item3.id, item_id: item1.id)
+ItemComponentItem.create(item_component_id: comp_item2.id, item_id: item2.id)
+ItemComponentItem.create(item_component_id: comp_item1.id, item_id: item2.id)
 
 Organization.create(name: 'Best org')
 
 (1..30).each do |n|
   SaleReceipt.create(organization_id: 1, item: item1, price: item1.price, quantity: rand(50), created_at: n.days.ago)
-end
-(1..30).each do |n|
   SaleReceipt.create(organization_id: 1, item: item2, price: item2.price, quantity: rand(50), created_at: n.days.ago)
 end
 

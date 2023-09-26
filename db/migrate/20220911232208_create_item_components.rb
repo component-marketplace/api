@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateItemComponents < ActiveRecord::Migration[7.0]
   def change
     create_table :item_components do |t|

@@ -1,0 +1,3 @@
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+  Enabled: true
