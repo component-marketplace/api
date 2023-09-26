@@ -36,14 +36,12 @@ class Item < ApplicationRecord
   end
 
   def fg_buffer_basic
-    total_sold_last_30_days = 0
-    max_lead_time = 0
-    max_quantity_ordered = 0
+    total_sold_last_30_days = max_lead_time = max_quantity_ordered = 0
     receipts = sale_receipts.where('created_at > ?', 30.days.ago)
     receipts.each do |receipt|
       total_sold_last_30_days += receipt.quantity || 0
-      max_lead_time = receipt.lead_time > max_lead_time ? receipt.lead_time : max_lead_time
-      max_quantity_ordered = receipt.quantity > max_lead_time ? receipt.quantity : max_lead_time
+      max_lead_time = [receipt.lead_time, max_lead_time].max
+      max_quantity_ordered = [receipt.quantity, max_lead_time].max
     end
 
     max_scenario = max_quantity_ordered * max_lead_time

@@ -1,4 +1,9 @@
 AllCops:
-    NewCops: enable
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/bundle'
+    - 'config/environments/production.rb'
 Style/Documentation:
   Enabled: false

@@ -18,14 +18,7 @@ module Admin
       @item_component = ItemComponent.new(item_component_params)
       if @item_component.save
         # TODO: Item id's need to be an array if used in multiple items
-        if params[:item_id] # TODO: Update this method, probably make a business method, after_create or something
-          item_component_item = ItemComponentItem.new(item_component_id: @item_component.id, item_id: params[:item_id])
-          if item_component_item.save
-            redirect_to @item_component
-          else
-            render json: 'Component created but not saved to items'
-          end
-        end
+        create_item_component
         redirect_to @item_component
       else
         render :new, status: :unprocessable_entity
@@ -53,6 +46,17 @@ module Admin
     end
 
     private
+
+    def create_item_component
+      return unless params[:item_id]
+
+      item_component_item = ItemComponentItem.new(item_component_id: @item_component.id, item_id: params[:item_id])
+      if item_component_item.save
+        redirect_to @item_component
+      else
+        render json: 'Component created but not saved to items'
+      end
+    end
 
     def item_component_params
       params.require(:item_component).permit(:name, :description, :price, :supplier_id, :item_id)
