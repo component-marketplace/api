@@ -1,5 +1,4 @@
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
-  Enabled: true
+AllCops:
+    NewCops: enable
 Style/Documentation:
   Enabled: false
