@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+        python: 3.8
+    commands:
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      - echo Running pre-build commands...
+  build:
+    commands:
+      - echo Running build...
+      - python setup.py install
+  post_build:
+    commands:
+      - echo Running post-build commands...
+
+artifacts:
+  files:
+    - output_file.txt
+    - path/to/other/output_file.txt
+
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'
