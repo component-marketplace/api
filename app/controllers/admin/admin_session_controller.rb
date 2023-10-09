@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class AdminSessionController < ApplicationController
+  class AdminSessionController < BaseController
     before_action :redirect_if_authenticated, only: %i[create new]
 
     def new; end

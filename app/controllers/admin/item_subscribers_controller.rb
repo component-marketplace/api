@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class ItemSubscribersController < ApplicationController
+  class ItemSubscribersController < BaseController
     def index
       @item_subscribers = ItemSubscriber.all
     end

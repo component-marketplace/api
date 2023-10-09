@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class OrganizationsController < ApplicationController
+  class OrganizationsController < BaseController
     def index
       @organizations = Organization.all
     end

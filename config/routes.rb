@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'home#index'
-
   scope module: 'admin', path: 'admin' do
+    root 'items#index'
     resources :admin_session, only: %i[new create destroy]
     resources :items
     resources :admin_users

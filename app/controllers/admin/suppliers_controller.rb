@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class SuppliersController < ApplicationController
+  class SuppliersController < BaseController
     def index
       @suppliers = Supplier.all
     end

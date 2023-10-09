@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class SaleReceiptsController < ApplicationController
+  class SaleReceiptsController < BaseController
     def index
       @sale_receipts = SaleReceipt.all
     end

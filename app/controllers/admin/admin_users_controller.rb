@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class AdminUsersController < ApplicationController
+  class AdminUsersController < BaseController
     def index
       @admin_users = AdminUser.all
     end
