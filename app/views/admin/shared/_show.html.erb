@@ -1,0 +1,27 @@
+<h1><%= object[title_column] %></h1>
+<div>
+    <% columns.each do |column|%>
+        <div style="background-color: white; border-bottom: 1px solid black; padding: 25px;">
+            <h3><%= column.capitalize() %></h3>
+            <p><%= object[column] %></p>
+        </div>
+    <% end %>
+    <% associations ||= nil %>
+    <% associations&.each do |association| %>
+        <div style="background-color: white; border-bottom: 1px solid black; padding: 25px;">
+            <h3><%= association.capitalize() %></h3>
+            <%= link_to object.send(association).name, association %>
+        </div>
+    <% end %>
+    <% collections ||= nil %>
+    <% collections&.each do |collection| %>
+        <div style="background-color: white; border-bottom: 1px solid black; padding: 25px;">
+            <h3><%= collection.capitalize() %></h3>
+            <ul>
+                <% object.send(collection)&.each do |obj| %>
+                    <%= link_to obj.name, obj %>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+</div>

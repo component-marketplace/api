@@ -1,8 +1,9 @@
 <%= link_to 'All Purchase Receipts', purchase_receipts_path %>
-<h1><%= @purchase_receipt.price %></h1>
-<p><%= @purchase_receipt.expected_arrival %></p>
 <%= link_to 'Edit', edit_purchase_receipt_path(@purchase_receipt) %>
 <%= link_to 'Delete', purchase_receipt_path(@purchase_receipt), data: {
   turbo_method: :delete,
   turbo_confirm: 'Are you sure?'
 } %>
+<% associations = %i[item_component] %>
+<% columns = %i[price expected_arrival created_at updated_at] %>
+<%= render partial: 'admin/shared/show', locals: { object: @purchase_receipt, title_column: :id, associations:, columns: } %>

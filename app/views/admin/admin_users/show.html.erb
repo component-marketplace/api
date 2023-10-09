@@ -1,5 +1,7 @@
-<h1><%= @admin_user.email %></h1>
 <%= link_to 'Delete', admin_user_path(@admin_user), data: {
   turbo_method: :delete,
   turbo_confirm: 'Are you sure?'
 } %>
+<%= link_to 'All Admin Users', admin_users_path %>
+<% columns = %i[email created_at updated_at] %>
+<%= render partial: 'admin/shared/show', locals: { object: @admin_user, title_column: :email, columns:  } %>
