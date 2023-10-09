@@ -1,6 +1,6 @@
 <%= link_to 'All Purchase Receipts', purchase_receipts_path %>
 <h1><%= @purchase_receipt.price %></h1>
-<p><%= @purchase_receipt.expected_delivery %></p>
+<p><%= @purchase_receipt.expected_arrival %></p>
 <%= link_to 'Edit', edit_purchase_receipt_path(@purchase_receipt) %>
 <%= link_to 'Delete', purchase_receipt_path(@purchase_receipt), data: {
   turbo_method: :delete,

@@ -1,10 +1,17 @@
-<%= link_to 'Home', root_path %>
-<h1>Admin Users</h1>
-<%= link_to 'New Admin User', new_user_path %>
-<ul>
-  <% @admin_users.each do |user| %>
-    <p>
-      <%= link_to user.email, user %>
-    </p>
-  <% end %>
-</ul>
+<h2>Admin Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @admin_users.each do |admin_user| %>
+          <tr>
+            <td><%= link_to admin_user.id, admin_user %></td>
+            <td><%= admin_user.email %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

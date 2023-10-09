@@ -45,6 +45,47 @@ body {
     padding: 10px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Table header style */
+thead {
+    background-color: #4C6375;
+    color: #FFF;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+/* Border-bottom for header cells */
+th {
+    border-bottom: 2px solid #FFF;
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Border bottom for each row */
+tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Remove border for the last row */
+tbody tr:last-of-type {
+    border-bottom: 0;
+}
+
+/* Align text to the left */
+th, td {
+    text-align: left;
+}
+
 ul {
     list-style-type: none;
     padding: 0;

@@ -1,15 +1,19 @@
-<%= link_to 'Home', root_path %>
-<h1>Items</h1>
-<div><%= link_to 'New Item', new_item_path %></div>
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <p>
-        <%= link_to item.name, item %>
-      </p>
-      <p>
-        <%= item.description %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+<h2>Items</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Vendor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= link_to item.id, item %></td>
+            <td><%= item.name %></td>
+            <td><%= link_to item.supplier&.name, item.supplier || "" %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,15 +1,17 @@
-<%= link_to 'Home', root_path %>
-<h1>Item Subscribers</h1>
-<div><%= link_to 'New Item Subscriber', new_item_subscriber_path %></div>
-<ul>
-  <% @item_subscribers.each do |item_subscriber| %>
-    <li>
-      <p>
-        <%= link_to item_subscriber.name, item_subscriber %>
-      </p>
-      <p>
-        <%= item_subscriber.description %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+<h2>Item Subscribers</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @item_subscribers.each do |item_subscriber| %>
+          <tr>
+            <td><%= item_subscriber.id %></td>
+            <td><%= link_to item_subscriber.name, item_subscriber %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

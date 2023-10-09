@@ -51,14 +51,16 @@ item1 = Item.create(
   name: 'Hair Gel',
   description: 'An Aloe Vera based hair gel that smells great',
   price: 5.99,
-  stock_quantity: 10
+  stock_quantity: 10,
+  supplier: supplier1
 )
 
 item2 = Item.create(
   name: 'A complete Jet!',
   description: 'A jet to go from A to B',
   price: 105.99,
-  stock_quantity: 10
+  stock_quantity: 10,
+  supplier: supplier1
 )
 
 ItemComponentItem.create(item_component_id: comp_item4.id, item_id: item1.id)
@@ -71,6 +73,11 @@ Organization.create(name: 'Best org')
 (1..30).each do |n|
   SaleReceipt.create(organization_id: 1, item: item1, price: item1.price, quantity: rand(50), created_at: n.days.ago)
   SaleReceipt.create(organization_id: 1, item: item2, price: item2.price, quantity: rand(50), created_at: n.days.ago)
+end
+
+(1..30).each do |n|
+  PurchaseReceipt.create(organization_id: 1, item_component: comp_item1, price: item1.price, quantity: rand(50), created_at: n.days.ago)
+  PurchaseReceipt.create(organization_id: 1, item_component: comp_item2, price: item2.price, quantity: rand(50), created_at: n.days.ago)
 end
 
 puts 'Finished Seeding!'

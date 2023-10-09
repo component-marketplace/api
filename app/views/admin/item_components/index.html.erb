@@ -1,18 +1,19 @@
-<%= link_to 'Home', root_path %>
-<h1>Item Components</h1>
-<div><%= link_to 'New Item', new_item_component_path %></div>
-<ul>
-  <% @item_components.each do |item| %>
-    <li>
-      <div>
-        <p><%= link_to item.name, item %></p>
-        <% if item.supplier.present? %>
-          <p>By <%= link_to item.supplier.name, item.supplier %></p>
+<h2>Item Components</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Vendor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @item_components.each do |item_components| %>
+          <tr>
+            <td><%= link_to item_components.id, item_components %></td>
+            <td><%= item_components.name %></td>
+            <td><%= link_to item_components.supplier&.name, item_components.supplier || "" %></td>
+          </tr>
         <% end %>
-      </div>
-      <p>
-        <%= item.description %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+    </tbody>
+</table>
