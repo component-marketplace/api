@@ -3,7 +3,7 @@
 module Admin
     class BaseController < ApplicationController
         layout 'admin'
-        before_action :redirect_if_unauthenticated, only: [:index]
+        before_action :redirect_if_unauthenticated
         helper_method :current_admin
 
         private

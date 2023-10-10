@@ -1,12 +1,18 @@
-<h1>Login</h1>
-<%= form_with url: admin_session_index_path, scope: :admin_user do |form| %>
+<div style="display: flex; justify-content: center; margin-top: 200px;">
   <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, required: true %>
+    <h1 style="text-align: center;">Login</h1>
+    <%= form_with url: admin_session_index_path, scope: :admin_user do |form| %>
+      <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <div><%= form.label :email %></div>
+        <div><%= form.email_field :email, required: true %></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 10px; margin: 10px 0;">
+        <div><%= form.label :password %></div>
+        <div><%= form.password_field :password, required: true %></div>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <%= form.submit 'Sign In' %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, required: true %>
-  </div>
-  <%= form.submit 'Sign In' %>
-<% end %>
+</div>
