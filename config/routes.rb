@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'batch_action/destroy'
+  end
+  get 'batch_action/destroy'
   scope module: 'admin', path: 'admin' do
     root 'items#index'
     resources :admin_session, only: %i[new create destroy]
@@ -13,6 +17,11 @@ Rails.application.routes.draw do
     resources :sale_receipts
     resources :organizations
     resources :item_subscribers
+    resources :batch_action, only: [] do
+      collection do
+        delete :batch_destroy
+      end
+    end
   end
 
   namespace :v1 do

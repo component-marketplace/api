@@ -1,7 +1,11 @@
 <h2><%= title %></h2>
+<%= form_with(url: batch_destroy_batch_action_index_path, method: :delete) do %>
+<%= submit_tag "Delete Objects", class: "btn"%>
+<%= hidden_field_tag :class_name, objects.first.class.name %>
 <table>
     <thead>
         <tr>
+            <th></th>
             <% headers.each do |header| %>
                 <th><%= header %></th>
             <% end %>
@@ -10,6 +14,7 @@
     <tbody>
         <% objects.each do |obj| %>
           <tr>
+            <td><%= check_box_tag "ids[]", obj.id %></td>
             <% columns.each do |col| %>
                 <td>
                     <% if col.is_a?(Symbol) %>
@@ -32,3 +37,4 @@
         <% end %>
     </tbody>
 </table>
+<% end %>

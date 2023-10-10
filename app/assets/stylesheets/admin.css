@@ -13,6 +13,9 @@ p, h3 { margin: 0 }
     padding: 5px 20px;
     color: #ecf0f1;
     text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .btn:hover,
@@ -60,6 +63,10 @@ thead {
 
 th, td {
     padding: 12px 15px;
+}
+
+td a {
+    padding: 15px;
 }
 
 /* Border-bottom for header cells */
