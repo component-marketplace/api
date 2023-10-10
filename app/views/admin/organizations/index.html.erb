@@ -1,17 +1,3 @@
-<h2>Organizations</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @organizations.each do |organization| %>
-          <tr>
-            <td><%= organization.id %></td>
-            <td><%= link_to organization.name, organization %></td>
-          </tr>
-        <% end %>
-    </tbody>
-</table>
+<% headers = %w[ID Name]%>
+<% columns = [{key: :id}, :name] %>
+<%= render partial: 'admin/shared/index', locals: { title: "Organizations", objects: @organizations, headers:, columns:  } %>

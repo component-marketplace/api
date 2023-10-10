@@ -1,17 +1,3 @@
-<h2>Suppliers</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @suppliers.each do |supplier| %>
-          <tr>
-            <td><%= supplier.id %></td>
-            <td><%= link_to supplier.name, supplier %></td>
-          </tr>
-        <% end %>
-    </tbody>
-</table>
+<% headers = %w[ID Name]%>
+<% columns = [{key: :id}, :name] %>
+<%= render partial: 'admin/shared/index', locals: { title: "Suppliers", objects: @suppliers, headers:, columns:  } %>

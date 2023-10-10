@@ -1,0 +1,34 @@
+<h2><%= title %></h2>
+<table>
+    <thead>
+        <tr>
+            <% headers.each do |header| %>
+                <th><%= header %></th>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% objects.each do |obj| %>
+          <tr>
+            <% columns.each do |col| %>
+                <td>
+                    <% if col.is_a?(Symbol) %>
+                        <%= obj[col] %>
+                    <% else %>
+                        <% 
+                            accessed_value = obj.send(col[:key])
+                            obj_link = !obj.send(col[:key]).is_a?(Numeric) ? obj.send(col[:key]) : obj
+                            col[:access_keys]&.each do |key|
+                                if accessed_value
+                                    accessed_value = accessed_value[key]
+                                end
+                            end
+                        %>
+                        <%= link_to accessed_value || "", obj_link %>
+                    <% end %>
+                </td>
+            <% end %>
+          </tr>
+        <% end %>
+    </tbody>
+</table>

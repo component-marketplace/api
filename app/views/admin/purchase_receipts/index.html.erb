@@ -1,17 +1,3 @@
-<h2>Purchase Receipts</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Item Component</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @purchase_receipts.each do |purchase_receipt| %>
-          <tr>
-            <td><%= link_to purchase_receipt.id, purchase_receipt %></td>
-            <td><%= link_to purchase_receipt.item_component.name, purchase_receipt.item_component %></td>
-          </tr>
-        <% end %>
-    </tbody>
-</table>
+<% headers = ["ID", "Item Component"]%>
+<% columns = [{key: :id}, {access_keys: [:name], key: :item_component}] %>
+<%= render partial: 'admin/shared/index', locals: { title: "Purchase Receipts", objects: @purchase_receipts, headers:, columns:  } %>

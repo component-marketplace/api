@@ -1,21 +1,3 @@
-<h2>Items</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Vendor</th>
-            <th>Published</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= link_to item.id, item %></td>
-            <td><%= item.name %></td>
-            <td><%= link_to item.supplier&.name, item.supplier || "" %></td>
-            <td><%= item.published %></td>
-          </tr>
-        <% end %>
-    </tbody>
-</table>
+<% headers = %w[ID Name Vendor Published]%>
+<% columns = [{key: :id}, :name, {access_keys: [:name], key: :supplier}, :published] %>
+<%= render partial: 'admin/shared/index', locals: { title: "Items", objects: @items, headers:, columns:  } %>

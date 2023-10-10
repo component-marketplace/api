@@ -1,17 +1,3 @@
-<h2>Item Subscribers</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @item_subscribers.each do |item_subscriber| %>
-          <tr>
-            <td><%= item_subscriber.id %></td>
-            <td><%= link_to item_subscriber.name, item_subscriber %></td>
-          </tr>
-        <% end %>
-    </tbody>
-</table>
+<% headers = ["ID", "Name"]%>
+<% columns = [{key: :id}, :name] %>
+<%= render partial: 'admin/shared/index', locals: { title: "Item Subscribers", objects: @item_subscribers, headers:, columns:  } %>
