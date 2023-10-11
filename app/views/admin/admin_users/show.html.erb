@@ -4,4 +4,4 @@
 } %>
 <%= link_to 'All Admin Users', admin_users_path %>
 <% columns = %i[email created_at updated_at] %>
-<%= render partial: 'admin/shared/show', locals: { object: @admin_user, title_column: :email, columns:  } %>
+<%= render partial: 'admin/shared/show', locals: { object: @admin_user, title_column: :email, columns: } %>
