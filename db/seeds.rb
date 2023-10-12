@@ -20,6 +20,8 @@ FactoryBot.create_list(:item_component, 10, :with_existing_item)
 FactoryBot.create_list(:item_component, 10, :with_item, :with_existing_supplier)
 FactoryBot.create_list(:item_component, 10, :with_item, :with_supplier)
 FactoryBot.create_list(:item_component, 10, :with_item)
+FactoryBot.create_list(:sale_receipt, 10, :with_existing_org, :with_existing_item)
+FactoryBot.create_list(:purchase_receipt, 10, :with_existing_org, :with_existing_item_component)
 FactoryBot.create(:admin_user)
 
 puts 'Finished Seeding!'
